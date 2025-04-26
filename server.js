@@ -86,7 +86,7 @@ client.on('interactionCreate', async interaction => {
 
         // Send DM
         await interaction.user.send({ embeds: [embed] });
-        await interaction.reply({ content: '✅ Credentials have been sent to your DMs!', ephemeral: false });
+        await interaction.reply({ content: '✅ Credentials have been sent to your DMs!', ephemeral: true });
 
     } catch (error) {
         console.error('Error:', error);
@@ -124,7 +124,7 @@ app.post('/api/validate', (req, res) => {
         return res.json({
             valid: true,
             expiry: userData.expiry
-        });wher
+        });
     }
 
     return res.status(401).json({ valid: false, message: 'Invalid credentials' });
